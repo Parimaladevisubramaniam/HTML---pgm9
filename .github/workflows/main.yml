@@ -1,0 +1,21 @@
+name: CSS Selector Autograding
+
+on:
+  push:
+  pull_request:
+
+jobs:
+
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Run Test
+      run: |
+        chmod +x test.sh
+        ./test.sh
