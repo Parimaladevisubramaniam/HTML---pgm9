@@ -1,0 +1,19 @@
+name: CSS Selectors Autograding
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  grade:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout student submission
+        uses: actions/checkout@v4
+
+      - name: Make test executable
+        run: chmod +x test.sh
+
+      - name: Run autograder
+        run: ./test.sh
