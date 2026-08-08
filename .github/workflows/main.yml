@@ -1,4 +1,4 @@
-name: CSS Selectors Autograding
+name: CSS Selector Assignment Autograder
 
 on:
   push:
@@ -12,8 +12,15 @@ jobs:
       - name: Checkout student submission
         uses: actions/checkout@v4
 
-      - name: Make test executable
-        run: chmod +x test.sh
+      - name: Install Bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y bash
 
-      - name: Run autograder
-        run: ./test.sh
+      - name: Convert test.sh to Linux line endings
+        run: |
+          sed -i 's/\r$//' test.sh
+
+      - name: Run Autograder
+        run: |
+          bash test.sh
