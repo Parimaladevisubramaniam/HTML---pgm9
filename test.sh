@@ -1,6 +1,5 @@
 #!/bin/bash
-sed -i 's/\r$//' test.sh
-bash test.sh
+
 echo "======================================"
 echo " CSS Selector Assignment Autograder"
 echo "======================================"
